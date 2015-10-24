@@ -258,6 +258,5 @@ public class SecureSettings {
         Settings.Secure.CREDENTIAL_SERVICE_PRIMARY,
         Settings.Secure.EVEN_DIMMER_ACTIVATED,
         Settings.Secure.EVEN_DIMMER_MIN_NITS
-        Settings.Secure.POWER_MENU_HIDE_ON_SECURE
     };
 }
