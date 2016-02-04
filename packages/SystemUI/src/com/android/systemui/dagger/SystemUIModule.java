@@ -50,6 +50,7 @@ import com.android.systemui.common.domain.CommonDomainLayerModule;
 import com.android.systemui.communal.dagger.CommunalModule;
 import com.android.systemui.complication.dagger.ComplicationComponent;
 import com.android.systemui.controls.dagger.ControlsModule;
+import com.android.systemui.custom.CustomModule;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dagger.qualifiers.SystemUser;
 import com.android.systemui.demomode.dagger.DemoModeModule;
@@ -195,6 +196,7 @@ import javax.inject.Named;
         ConnectivityModule.class,
         ControlsModule.class,
         CoroutinesModule.class,
+        CustomModule.class,
         DemoModeModule.class,
         DeviceEntryModule.class,
         DisableFlagsModule.class,
