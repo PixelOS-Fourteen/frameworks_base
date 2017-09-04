@@ -17310,6 +17310,12 @@ public final class Settings {
         public static final String STEM_PRIMARY_BUTTON_LONG_PRESS =
                 "stem_primary_button_long_press";
 
+       /*
+        * Whether to allow battery light
+        * @hide
+        */
+        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+
         /**
          * Overrides internal R.integer.config_keyChordPowerVolumeUp.
          * Allowable values detailed in frameworks/base/core/res/res/values/config.xml.
