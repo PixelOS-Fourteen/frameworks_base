@@ -363,6 +363,9 @@ public class NotificationShadeWindowViewController implements Dumpable {
                         && mDreamingWakeupGestureHandler.onTouchEvent(ev)) {
                     return logDownDispatch(ev, "dream wakeup gesture handled", true);
                 }
+                if (mStatusBarKeyguardViewManager.dispatchTouchEvent(ev)) {
+                    return logDownDispatch(ev, "dispatched to Keyguard", true);
+                }
                 if (mBrightnessMirror != null
                         && mBrightnessMirror.getVisibility() == View.VISIBLE) {
                     // Disallow new pointers while the brightness mirror is visible. This is so that
