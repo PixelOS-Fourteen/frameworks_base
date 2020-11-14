@@ -24,4 +24,7 @@
 
     <!-- Height of the faceunlock image view -->
     <dimen name="keyguard_face_unlock_margin_bottom">@dimen/keyguard_lock_height</dimen>
+
+    <!-- Screen Record -->
+    <dimen name="screenrecord_dot_size">48dp</dimen>
 </resources>
