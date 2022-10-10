@@ -62,6 +62,7 @@ import android.os.Looper;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.os.UserHandle;
@@ -921,6 +922,11 @@ public class ScreenshotController {
         if (mScreenshotSoundController == null) return;
         // the controller is not-null only on the default display controller
         mScreenshotSoundController.playCameraSound();
+
+	if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SCREENSHOT_SHUTTER_SOUND, 1, UserHandle.USER_CURRENT) == 0) {
+           return;
+	}
 
 	boolean playSound = readCameraSoundForced() && mCamsInUse > 0;
 
