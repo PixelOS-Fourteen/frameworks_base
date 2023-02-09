@@ -29,6 +29,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class PropImitationHooks {
 
@@ -50,6 +51,8 @@ public class PropImitationHooks {
     private static final String PACKAGE_TURBO = "com.google.android.apps.turbo";
     private static final String PACKAGE_VELVET = "com.google.android.googlequicksearchbox";
     private static final String PACKAGE_GBOARD = "com.google.android.inputmethod.latin";
+    private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
+    private static final String FEATURE_NEXUS_PRELOAD = "com.google.android.apps.photos.NEXUS_PRELOAD";
     private static final String PACKAGE_SETUPWIZARD = "com.google.android.setupwizard";
 
     private static final Map<String, Object> sP8Props = new HashMap<>();
@@ -62,8 +65,28 @@ public class PropImitationHooks {
         sP8Props.put("FINGERPRINT", "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys");
     }
 
+    private static final Map<String, Object> sPixelXLProps = new HashMap<>();
+    static {
+        sPixelXLProps.put("BRAND", "google");
+        sPixelXLProps.put("MANUFACTURER", "Google");
+        sPixelXLProps.put("DEVICE", "marlin");
+        sPixelXLProps.put("PRODUCT", "marlin");
+        sPixelXLProps.put("MODEL", "Pixel XL");
+        sPixelXLProps.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
+    }
+
+    private static final Set<String> sPixelFeatures = Set.of(
+        "PIXEL_2017_PRELOAD",
+        "PIXEL_2018_PRELOAD",
+        "PIXEL_2019_MIDYEAR_PRELOAD",
+        "PIXEL_2019_PRELOAD",
+        "PIXEL_2020_EXPERIENCE",
+        "PIXEL_2020_MIDYEAR_EXPERIENCE"
+    );
+
     private static volatile boolean sIsGms = false;
     private static volatile boolean sIsFinsky = false;
+    private static volatile boolean sIsPhotos = false;
 
     public static void setProps(Application app) {
         final String packageName = app.getPackageName();
@@ -75,6 +98,7 @@ public class PropImitationHooks {
 
         sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
         sIsFinsky = packageName.equals(PACKAGE_FINSKY);
+        sIsPhotos = packageName.equals(PACKAGE_GPHOTOS);
 
         if (sIsGms) {
             dlog("Setting Pixel XL fingerprint for: " + packageName);
@@ -89,6 +113,9 @@ public class PropImitationHooks {
                    || packageName.equals(PACKAGE_VELVET) || packageName.equals(PACKAGE_GBOARD) || packageName.equals(PACKAGE_SETUPWIZARD) || packageName.equals(PACKAGE_GMS)) {
             dlog("Spoofing Pixel 8 Pro for: " + packageName);
             sP8Props.forEach((k, v) -> setPropValue(k, v));
+        } else if (sIsPhotos) {
+            dlog("Spoofing Pixel XL for Google Photos");
+            sPixelXLProps.forEach((k, v) -> setPropValue(k, v));
         }
     }
 
@@ -138,6 +165,19 @@ public class PropImitationHooks {
             dlog("Blocked key attestation sIsGms=" + sIsGms + " sIsFinsky=" + sIsFinsky);
             throw new UnsupportedOperationException();
         }
+    }
+
+    public static boolean hasSystemFeature(String name, boolean has) {
+        if (sIsPhotos) {
+            if (has && sPixelFeatures.stream().anyMatch(name::contains)) {
+                dlog("Blocked system feature " + name + " for Google Photos");
+                has = false;
+            } else if (!has && name.equalsIgnoreCase(FEATURE_NEXUS_PRELOAD)) {
+                dlog("Enabled system feature " + name + " for Google Photos");
+                has = true;
+            }
+        }
+        return has;
     }
 
     public static void dlog(String msg) {
