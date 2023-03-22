@@ -9573,6 +9573,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
 
         final int newDisplayId = getDisplayId();
         final boolean displayChanged = mLastReportedDisplayId != newDisplayId;
+        final int lastReportDisplayID = mLastReportedDisplayId;
         if (displayChanged) {
             mLastReportedDisplayId = newDisplayId;
         }
@@ -9653,7 +9654,9 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
                 Integer.toHexString(changes), Integer.toHexString(info.getRealConfigChanged()),
                 mLastReportedConfiguration);
 
-        if (shouldRelaunchLocked(changes, mTmpConfig) || forceNewConfig) {
+        if (shouldRelaunchLocked(changes, mTmpConfig)
+                && !mAtmService.mRemoteTaskManager.shouldIgnoreRelaunch(task, displayChanged,
+                lastReportDisplayID, newDisplayId, changes) || forceNewConfig) {
             // Aha, the activity isn't handling the change, so DIE DIE DIE.
             configChangeFlags |= changes;
             startFreezingScreenLocked(globalChanges);
