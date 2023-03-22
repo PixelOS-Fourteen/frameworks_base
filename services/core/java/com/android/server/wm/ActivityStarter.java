@@ -113,6 +113,7 @@ import android.content.res.Configuration;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.DeviceIntegrationUtils;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.Trace;
@@ -605,7 +606,9 @@ class ActivityStarter {
         mRootWindowContainer = service.mRootWindowContainer;
         mSupervisor = supervisor;
         mInterceptor = interceptor;
-        mRemoteTaskManager = mService.getRemoteTaskManager();
+        if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION) {
+            mRemoteTaskManager = mService.getRemoteTaskManager();
+        }
         reset(true);
     }
 
@@ -1670,7 +1673,8 @@ class ActivityStarter {
         final Task targetTask = reusedTask != null ? reusedTask : computeTargetTask();
         final boolean newTask = targetTask == null;
 
-        if (newTask || reusedTask != null) {
+        if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION
+            && (newTask || reusedTask != null)) {
             final boolean shouldInterfere
                     = newTask && mRemoteTaskManager.isDeliverToCurrentTop(
                             mPreferredTaskDisplayArea, mStartActivity,
@@ -1734,7 +1738,7 @@ class ActivityStarter {
             startResult =
                     recycleTask(targetTask, targetTaskTop, reusedTask, intentGrants, balVerdict);
             if (startResult != START_SUCCESS) {
-                if (reusedTask != null) {
+                if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION && reusedTask != null) {
                     mRemoteTaskManager.activateRemoteTaskIfNeeded(newTask, reusedTask,r, mOptions);
                 }
                 return startResult;
@@ -1749,7 +1753,7 @@ class ActivityStarter {
         if (topRootTask != null) {
             startResult = deliverToCurrentTopIfNeeded(topRootTask, intentGrants);
             if (startResult != START_SUCCESS) {
-                if (reusedTask != null) {
+                if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION && reusedTask != null) {
                     mRemoteTaskManager.activateRemoteTaskIfNeeded(newTask, reusedTask,r, mOptions);
                 }
                 return startResult;
@@ -1865,7 +1869,9 @@ class ActivityStarter {
             mRootWindowContainer.moveActivityToPinnedRootTask(mStartActivity,
                     sourceRecord, "launch-into-pip");
         }
-        mRemoteTaskManager.activateRemoteTaskIfNeeded(newTask, reusedTask, r, mOptions);
+        if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION) {
+            mRemoteTaskManager.activateRemoteTaskIfNeeded(newTask, reusedTask, r, mOptions);
+        }
 
         mSupervisor.getBackgroundActivityLaunchController()
                 .onNewActivityLaunched(mStartActivity);
@@ -2222,9 +2228,13 @@ class ActivityStarter {
             // removed from calling performClearTaskLocked (For example, if it is being brought out
             // of history or if it is finished immediately), thus disassociating the task. Keep the
             // task-overlay activity because the targetTask will be reused to launch new activity.
-            if (!mRemoteTaskManager.inAnyInterceptSession(mOptions)) {
-                // Device Integration: if we got a intention for moving task between displays, stop cleaning
-                // any activity from task, we want to keep context in apps unchange.
+            if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION) {
+                if (!mRemoteTaskManager.inAnyInterceptSession(mOptions)) {
+                    // Device Integration: if we got a intention for moving task between displays, stop cleaning
+                    // any activity from task, we want to keep context in apps unchange.
+                    targetTask.performClearTaskForReuse(true /* excludingTaskOverlay*/);
+                }
+            } else {
                 targetTask.performClearTaskForReuse(true /* excludingTaskOverlay*/);
             }
             targetTask.setIntent(mStartActivity);
@@ -2236,7 +2246,8 @@ class ActivityStarter {
                         LAUNCH_SINGLE_INSTANCE_PER_TASK)) {
             // Device Integration: if we got a intention for moving task between displays, stop cleaning any activity from task
             // we want to keep context in app unchange.
-            if (mRemoteTaskManager.inAnyInterceptSession(mOptions)
+            if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION
+                && mRemoteTaskManager.inAnyInterceptSession(mOptions)
                     && (mLaunchFlags & FLAG_ACTIVITY_CLEAR_TOP) == 0) {
                 return;
             }
@@ -2714,7 +2725,7 @@ class ActivityStarter {
                 intentActivity =
                         mRootWindowContainer.findTask(mStartActivity, mPreferredTaskDisplayArea);
             }
-        } else {
+        } else if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION) {
             intentActivity = mRemoteTaskManager.findTaskForReuseIfNeeded(mStartActivity,
                         mOptions, mPreferredTaskDisplayArea, mLaunchFlags);
         }
@@ -2808,7 +2819,8 @@ class ActivityStarter {
                                     mTargetRootTask);
 
                     boolean noAnimation = mNoAnimation;
-                    if (mRemoteTaskManager.isDisplaySwitchDetected(mOptions)) {
+                    if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION
+                        && mRemoteTaskManager.isDisplaySwitchDetected(mOptions)) {
                         noAnimation = true;
                     }
 

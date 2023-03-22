@@ -43,7 +43,6 @@ import android.annotation.UserIdInt;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.BroadcastOptions;
-import android.app.CrossDeviceManager;
 import android.app.GameManager;
 import android.app.GrammaticalInflectionManager;
 import android.app.IApplicationThread;
@@ -4545,7 +4544,7 @@ public abstract class Context {
 
     /**
      * Use with {@link #getSystemService(String)} to retrieve a
-     * {@link CrossDeviceManager} for interacting with the global system state.
+     * {@link CrossDeviceManager} for interacting with the Cross Device Service.
      * @hide
      */
     public static final String CROSS_DEVICE_SERVICE = "cross_device_service";
