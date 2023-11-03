@@ -55,14 +55,14 @@ public class PropImitationHooks {
     private static final String FEATURE_NEXUS_PRELOAD = "com.google.android.apps.photos.NEXUS_PRELOAD";
     private static final String PACKAGE_SETUPWIZARD = "com.google.android.setupwizard";
 
-    private static final Map<String, Object> sP7Props = new HashMap<>();
+    private static final Map<String, Object> sP8Props = new HashMap<>();
     static {
-        sP7Props.put("BRAND", "google");
-        sP7Props.put("MANUFACTURER", "Google");
-        sP7Props.put("DEVICE", "husky");
-        sP7Props.put("PRODUCT", "husky");
-        sP7Props.put("MODEL", "Pixel 8 Pro");
-        sP7Props.put("FINGERPRINT", "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys");
+        sP8Props.put("BRAND", "google");
+        sP8Props.put("MANUFACTURER", "Google");
+        sP8Props.put("DEVICE", "husky");
+        sP8Props.put("PRODUCT", "husky");
+        sP8Props.put("MODEL", "Pixel 8 Pro");
+        sP8Props.put("FINGERPRINT", "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys");
     }
 
     private static final Map<String, Object> sPixelXLProps = new HashMap<>();
@@ -112,7 +112,7 @@ public class PropImitationHooks {
         } else if (packageName.equals(PACKAGE_SUBSCRIPTION_RED) || packageName.equals(PACKAGE_TURBO)
                    || packageName.equals(PACKAGE_VELVET) || packageName.equals(PACKAGE_GBOARD) || packageName.equals(PACKAGE_SETUPWIZARD) || packageName.equals(PACKAGE_GMS)) {
             dlog("Spoofing Pixel 8 Pro for: " + packageName);
-            sP7Props.forEach((k, v) -> setPropValue(k, v));
+            sP8Props.forEach((k, v) -> setPropValue(k, v));
         } else if (sIsPhotos) {
             dlog("Spoofing Pixel XL for Google Photos");
             sPixelXLProps.forEach((k, v) -> setPropValue(k, v));
