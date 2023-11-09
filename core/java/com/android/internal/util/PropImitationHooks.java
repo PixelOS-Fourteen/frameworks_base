@@ -101,7 +101,7 @@ public class PropImitationHooks {
         sIsPhotos = packageName.equals(PACKAGE_GPHOTOS);
 
         if (sIsGms) {
-            dlog("Setting Pixel XL fingerprint for: " + packageName);
+            dlog("Setting ASUS_X00HD fingerprint for: " + packageName);
             spoofBuildGms();
         } else if (!sCertifiedFp.isEmpty() && sIsFinsky) {
             dlog("Setting certified fingerprint for: " + packageName);
@@ -147,10 +147,10 @@ public class PropImitationHooks {
 
     private static void spoofBuildGms() {
         // Alter model name and fingerprint to avoid hardware attestation enforcement
-        setPropValue("FINGERPRINT", "google/marlin/marlin:7.1.2/NJH47F/4146041:user/release-keys");
-        setPropValue("PRODUCT", "marlin");
-        setPropValue("DEVICE", "marlin");
-        setPropValue("MODEL", "Pixel XL");
+        setPropValue("FINGERPRINT", "asus/WW_Phone/ASUS_X00HD_4:7.1.1/NMF26F/14.2016.1801.372-20180119:user/release-keys");
+        setPropValue("PRODUCT", "WW_Phone");
+        setPropValue("DEVICE", "ASUS_X00HD_4");
+        setPropValue("MODEL", "ASUS_X00HD");
         setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N_MR1);
     }
 
