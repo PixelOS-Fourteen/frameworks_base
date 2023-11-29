@@ -147,11 +147,11 @@ public class PropImitationHooks {
 
     private static void spoofBuildGms() {
         // Alter build parameters to avoid hardware attestation enforcement
-        setPropValue("DEVICE", "sailfish");
-        setPropValue("FINGERPRINT", "google/sailfish/sailfish:8.1.0/OPM2.171019.029/4657601:user/release-keys");
-        setPropValue("MODEL", "Pixel");
-        setPropValue("PRODUCT", "sailfish");
-        setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.O_MR1);
+        setPropValue("DEVICE", "foster");
+        setPropValue("FINGERPRINT", "NVIDIA/foster_e/foster:7.0/NRD90M/2427173_1038.2788:user/release-keys");
+        setPropValue("MODEL", "SHIELD Android TV");
+        setPropValue("PRODUCT", "foster_e");
+        setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
     }
 
     private static boolean isCallerSafetyNet() {
