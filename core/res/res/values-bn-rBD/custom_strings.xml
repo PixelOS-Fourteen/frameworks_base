@@ -25,6 +25,44 @@
     <!-- Alert slider proc nodes paths. -->
     <string name="alert_slider_state_path"></string>
     <string name="alert_slider_uevent_match_path"></string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">ক্র্যাস লগ ইউআরএল কপি করুন</string>
+    <string name="url_copy_success">URL সফলভাবে অনুলিপি করা হয়েছে</string>
+    <string name="url_copy_failed">মেমোচোতে লগ আপলোড করার সময় একটি ত্রুটি ঘটেছে</string>
     <!-- Cycle through ringer modes -->
     <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">স্বয়ংক্রিয়</string>
+    <string name="live_display_auto_summary">সূর্যাস্ত এবং সূর্যোদয়ের পরে স্বয়ংক্রিয়ভাবে পর্দার রঙের তাপমাত্রা সামঞ্জস্য করুন</string>
+    <string name="live_display_off">বন্ধ</string>
+    <string name="live_display_off_summary">সকল পরিবর্তন বন্ধ করুন</string>
+    <string name="live_display_day">দিন</string>
+    <string name="live_display_day_summary">শুধুমাত্র দিনের সেটিংস ব্যবহার করুন</string>
+    <string name="live_display_night">রাত</string>
+    <string name="live_display_night_summary">শুধুমাত্র রাতের সেটিংস ব্যবহার করুন</string>
+    <string name="live_display_outdoor">আউটডোর (উজ্জ্বল সূর্য)</string>
+    <string name="live_display_outdoor_summary">শুধুমাত্র আউটডোর সেটিংস ব্যবহার করুন</string>
+    <string name="live_display_hint">লাইভডিসপ্লে চোখের চাপ কমাতে এবং রাতে ঘুমাতে সাহায্য করতে পারে। এটা ব্যবহার করতে এখানে ক্লিক করুন!</string>
+    <string name="accessibility_quick_settings_live_display_off">লাইভ ডিসপ্লে বন্ধ।</string>
+    <string name="accessibility_quick_settings_live_display_auto">লাইভ ডিসপ্লে: অটো মোড।</string>
+    <string name="accessibility_quick_settings_live_display_day">লাইভ ডিসপ্লে: ডে মোড।</string>
+    <string name="accessibility_quick_settings_live_display_night">লাইভ ডিসপ্লে: নাইট মোড।</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">লাইভ ডিসপ্লে: আউটডোর মোড।লাইভ ডিসপ্লে: আউটডোর মোড।</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">লাইভ ডিসপ্লে বন্ধ করা হয়েছে।</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">লাইভ ডিসপ্লে স্বয়ংক্রিয় মোডে পরিবর্তিত হয়েছে।</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">লাইভ ডিসপ্লে দিন মোডে পরিবর্তিত হয়েছে।</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">লাইভ ডিসপ্লে নাইট মোডে পরিবর্তিত হয়েছে।</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">লাইভ ডিসপ্লে আউটডোর মোডে পরিবর্তিত হয়েছে।</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Charging control</string>
+    <string name="charging_control_notification_title">Charging control</string>
+    <string name="charging_control_notification_cancel_once">Cancel</string>
+    <string name="charging_control_notification_content_limit">Battery will be charged to %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Battery is charged to %1$d%%</string>
+    <string name="charging_control_notification_content_target">Battery will be fully charged at %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Battery is charged</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Power off alarm</string>
+    <string name="poweroff_alarm_title">Power off alarm set</string>
+    <string name="poweroff_alarm_body">An alarm was detected. You can turn off your phone and it\'ll power on 2 minutes before it\'s due</string>
 </resources>

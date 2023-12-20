@@ -16,26 +16,26 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Reboot -->
-    <string name="global_action_restart_advanced">Advanced</string>
-    <string name="global_action_restart_recovery">Recovery</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_advanced">고급 설정</string>
+    <string name="global_action_restart_recovery">리커버리</string>
+    <string name="global_action_restart_bootloader">부트로더</string>
+    <string name="global_action_restart_ui">시스템UI</string>
     <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Ambient display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+    <string name="quick_settings_ambient_display_label">앰비언트 디스플레이</string>
+    <string name="accessibility_quick_settings_ambient_display_off">앰비언트 디스플레이 꺼짐</string>
+    <string name="accessibility_quick_settings_ambient_display_on">앰비언트 디스플레이 켜짐.</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery saver</string>
+    <string name="quick_settings_aod_label">Always On Display</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD 꺼짐\n절전 모드</string>
     <!-- Caffeine QS tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine 꺼짐.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine 켜짐.</string>
+    <string name="quick_settings_caffeine_label">화면 계속 켜기</string>
+    <string name="accessibility_quick_settings_caffeine_off">화면 계속 켜기 꺼짐</string>
+    <string name="accessibility_quick_settings_caffeine_on">화면 계속 켜기 켜짐</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">헤드업 알림</string>
-    <string name="accessibility_quick_settings_heads_up_off">헤드업 알림 꺼짐.</string>
-    <string name="accessibility_quick_settings_heads_up_on">헤드업 알림 켜짐.</string>
+    <string name="quick_settings_heads_up_label">화면 상단 알림</string>
+    <string name="accessibility_quick_settings_heads_up_off">화면 상단 알림 꺼짐</string>
+    <string name="accessibility_quick_settings_heads_up_on">화면 상단 알림 켜짐</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">동기화</string>
     <string name="accessibility_quick_settings_sync_off">동기화 꺼짐.</string>
@@ -49,16 +49,34 @@
     <string name="vpn_credentials_username">사용자명</string>
     <string name="vpn_credentials_password">비밀번호</string>
     <string name="vpn_credentials_dialog_connect">연결</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">데이터 전용 SIM 카드 전환</string>
+    <string name="qs_data_switch_toast_0">현재 SIM 카드가 삽입되어 있지 않습니다.</string>
+    <string name="qs_data_switch_toast_1">현재 하나의 SIM 카드만 삽입되어 있습니다.</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Switch data card to SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Switch data card to SIM 2.</string>
     <!-- Title of statusbar tuner -->
     <string name="status_bar_icons">상태 표시줄 아이콘</string>
     <!-- Name of the VPN status bar icon. -->
     <string name="status_bar_vpn">VPN</string>
-    <!-- Name of the roaming status bar icon. -->
-    <string name="status_bar_roaming">Roaming indicator</string>
     <!-- Name of the data saver status bar icon. -->
-    <string name="status_bar_data_saver">Data saver</string>
+    <string name="status_bar_data_saver">데이터 절약 모드</string>
     <!-- Name of the location status bar icon. -->
-    <string name="status_bar_location">Location</string>
+    <string name="status_bar_location">위치</string>
     <!-- Name of the microphone status bar icon. -->
-    <string name="status_bar_microphone">Microphone</string>
+    <string name="status_bar_microphone">마이크 권한</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Use Bluetooth</string>
+    <string name="bluetooth_is_off">블루투스가 사용 중지됨</string>
+    <string name="tap_a_device_to_connect">Tap a device to connect / disconnect</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">독서 모드</string>
+    <string name="accessibility_quick_settings_reading_mode_on">독서 모드 켜짐.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">독서 모드 꺼짐.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">독서 모드가 켜졌습니다.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">독서 모드가 꺼졌습니다.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">플리커링 방지</string>
 </resources>

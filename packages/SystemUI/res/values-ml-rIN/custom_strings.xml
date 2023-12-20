@@ -49,16 +49,34 @@
     <string name="vpn_credentials_username">ഉപയോക്തൃനാമം</string>
     <string name="vpn_credentials_password">പാസ്സ്‌വേർഡ്</string>
     <string name="vpn_credentials_dialog_connect">ബന്ധിപ്പിക്കുക</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">ഡാറ്റാ കാർഡ് സ്വിച്ച് ചെയ്യുക</string>
+    <string name="qs_data_switch_toast_0">നിലവിൽ ഒരു സിം കാർഡും ഇട്ടിട്ടില്ല</string>
+    <string name="qs_data_switch_toast_1">നിലവിൽ ഒരു സിം കാർഡ് മാത്രമേ ഇട്ടിട്ടുള്ളു</string>
+    <string name="qs_data_switch_text_1">സിം 1</string>
+    <string name="qs_data_switch_text_2">സിം 2</string>
+    <string name="qs_data_switch_changed_1">Switch data card to SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Switch data card to SIM 2.</string>
     <!-- Title of statusbar tuner -->
     <string name="status_bar_icons">സ്റ്റാറ്റസ് ബാർ ഐക്കണുകൾ</string>
     <!-- Name of the VPN status bar icon. -->
     <string name="status_bar_vpn">വി പി എൻ</string>
-    <!-- Name of the roaming status bar icon. -->
-    <string name="status_bar_roaming">Roaming indicator</string>
     <!-- Name of the data saver status bar icon. -->
     <string name="status_bar_data_saver">Data saver</string>
     <!-- Name of the location status bar icon. -->
     <string name="status_bar_location">Location</string>
     <!-- Name of the microphone status bar icon. -->
     <string name="status_bar_microphone">Microphone</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Use Bluetooth</string>
+    <string name="bluetooth_is_off">ബ്ലൂടൂത്ത് ഓഫാണ്</string>
+    <string name="tap_a_device_to_connect">Tap a device to connect / disconnect</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">വായനാ മോഡ്</string>
+    <string name="accessibility_quick_settings_reading_mode_on">വായനാ മോഡ് ഓൺ.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">വായനാ മോഡ് ഓഫ്.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">വായനാ മോഡ് ഓണാക്കി.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">വായനാ മോഡ് ഓഫാക്കി.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">ആന്റി ഫ്ലിക്കർ</string>
 </resources>
