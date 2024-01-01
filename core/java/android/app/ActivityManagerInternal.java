@@ -925,9 +925,6 @@ public abstract class ActivityManagerInternal {
      */
     public abstract @TempAllowListType int getPushMessagingOverQuotaBehavior();
 
-    // Starts a process as empty.
-    public abstract int startActivityAsUserEmpty(Bundle options);
-
     /**
      * Return the startForeground() grace period after calling startForegroundService().
      */
